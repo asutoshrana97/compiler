@@ -13,6 +13,7 @@ any [a-zA-z0-9~`!@#$%\\\^&*()\-{}[\] =|/?.>,<''"":;]
 
 {digit}{digit}*|{digit}{digit}*(\.{digit}+)			printf("NUM: %s", yytext);
 
+"{"|"}"|"("|")"|"["|"]"						printf("PAR: %s", yytext);
 ";"													printf("STP: %s\n", yytext);
 "scan"|"print"|"repeat"|"if"|"else"|"else if"		printf("KEY: %s\n", yytext);
 "int"|"char"|"float"|"string"						printf("DTP: %s\n", yytext);
