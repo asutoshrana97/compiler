@@ -1,0 +1,7 @@
+arithmetic operators + - * / ^ %
+relational operators == != >= <= < > 
+logical operators || &&
+keywords print, scan, repeat, if, else if, else
+paranthesis (, ), [, ], {, }
+delimiter ;
+
