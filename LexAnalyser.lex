@@ -5,19 +5,19 @@ any [a-zA-z0-9~`!@#$%\\^&*()-{}[\]=|/?.>,<'":;]
 
 [ \t\n]+						{}
 
-"%"							printf("MOD: %s\n", yytext);
-"^"							printf("EXP: %s\n", yytext);
-"+"|"-"|"*"|"/"						printf("OPA: %s\n", yytext);
-"="							printf("EQ: %s\n", yytext);
-">="|"<="|">"|"<"|"=="|"!="				printf("ROP: %s\n", yytext);
+"%"									printf("MOD: %s\n", yytext);
+"^"									printf("EXP: %s\n", yytext);
+"+"|"-"|"*"|"/"								printf("OPA: %s\n", yytext);
+"="									printf("EQ: %s\n", yytext);
+">="|"<="|">"|"<"|"=="|"!="						printf("ROP: %s\n", yytext);
 
-{digit}+						printf("INT: %d\n", atoi(yytext));
-{digit}+(\.{digit}+)					printf("FL: %lf\n", atof(yytext));
+{digit}+								printf("INT: %d\n", atoi(yytext));
+{digit}+(\.{digit}+)							printf("FL: %lf\n", atof(yytext));
 
-"{"|"}"|"("|")"|"["|"]"					printf("PAR: %s\n", yytext);
-";"							printf("STP: %s\n", yytext);
-"scan"|"print"|"repeat"|"if"|"else"|"else if"		printf("KEY: %s\n", yytext);
-"int"|"char"|"float"|"string"				printf("DTP: %s\n", yytext);
+"{"|"}"|"("|")"|"["|"]"							printf("PAR: %s\n", yytext);
+";"									printf("STP: %s\n", yytext);
+"scan"|"print"|"repeat"|"if"|"else"|"else if"				printf("KEY: %s\n", yytext);
+"int"|"char"|"float"|"string"						printf("DTP: %s\n", yytext);
 
 "'"{any}?"'"						printf("CHAR: %s\n", yytext);
 "\""({any})*"\""					printf("STR: %s\n", yytext);
