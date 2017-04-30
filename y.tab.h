@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_SA_TAB_H_INCLUDED
-# define YY_YY_SA_TAB_H_INCLUDED
+#ifndef YY_YY_Y_TAB_H_INCLUDED
+# define YY_YY_Y_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -70,19 +70,43 @@ extern int yydebug;
     STR = 280
   };
 #endif
+/* Tokens.  */
+#define INT 258
+#define FLOAT 259
+#define MOD 260
+#define POW 261
+#define OPA 262
+#define OPM 263
+#define EQ 264
+#define PAR_OPEN 265
+#define PAR_CLOSE 266
+#define CB_OPEN 267
+#define CB_CLOSE 268
+#define STOP 269
+#define SCAN 270
+#define PRINT 271
+#define REP 272
+#define CHAR 273
+#define IF 274
+#define ELSE 275
+#define ELIF 276
+#define DTP 277
+#define RELOP 278
+#define VAR 279
+#define STR 280
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 
 union YYSTYPE
 {
-#line 22 "SA.y" /* yacc.c:1909  */
+#line 21 "SA.y" /* yacc.c:1909  */
 
   double val;
   char sym;
   std::string *str_val;
 
-#line 86 "SA.tab.h" /* yacc.c:1909  */
+#line 110 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -95,4 +119,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_SA_TAB_H_INCLUDED  */
+#endif /* !YY_YY_Y_TAB_H_INCLUDED  */

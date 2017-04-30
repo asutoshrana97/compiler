@@ -4,11 +4,12 @@
 #include <string>
 #include <string.h>
 using namespace std;
+extern int i,e;
 %}
 
 letter [a-zA-Z]
 digit [0-9]
-any [a-zA-z0-9~`!@#$%\\^&*()-{}[\]=|/?.>,<'":;]
+any [a-zA-z0-9~`!@#$%\\^&*()-{}[\]=|/?.>,<:;]
 
 %option noyywrap
 
@@ -35,15 +36,15 @@ any [a-zA-z0-9~`!@#$%\\^&*()-{}[\]=|/?.>,<'":;]
 "print"						{return PRINT;}
 
 "repeat"					{return REP;}
-"if"						{return IF;}
-"else"						{return ELSE;}
+"if"						{i=1;return IF;}
+"else"						{i=0;e=1;return ELSE;}
 "else if"					{return ELIF;}
 "int"|"char"|"float"|"string"			{yylval.str_val = new string(yytext); return DTP;}
 
 "'"{any}"'"					{yylval.sym = yytext[1]; return CHAR;}
-\".\"						{	std::string str(yytext);
+\"({any})*\"						{	std::string str(yytext);
 							yylval.str_val = new string(str.substr(1,strlen(yytext)-2)); return STR;}
-"/*"."*/"					{}//comments are ignored
+"/*".*"*/"					{}//comments are ignored
 
 {letter}({letter}|{digit}|_)*			{yylval.str_val = new string(yytext); return VAR;}
 .					        {cerr << "TOKEN MISMATCH!!" << endl; exit(1); }
